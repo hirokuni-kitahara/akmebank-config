@@ -27,7 +27,7 @@ jobs:
                      
           echo Head Ref and Hash: $message
           
-          curl -X POST \
+          curl -g -X POST \
           --url https://api.github.com/repos/gajananan/argo-github-action/dispatches \
           --header 'authorization: Bearer ${{ secrets.ARGOCD_BUILDER_ACTION_SECRET }}' \
           -H 'Content-Type: application/json'\
