@@ -32,5 +32,5 @@ jobs:
           --header 'authorization: Bearer ${{ secrets.ARGOCD_BUILDER_ACTION_SECRET }}' \
           -H 'Content-Type: application/json'\
           --header "Accept: application/vnd.github.v3+json" \
-          --data "{\"event_type\":\"webhook\", \"client_payload\": { \"commit_hash\": \"$message\", \"app\": \"$appId\", \"argo-config\": \"$argoconfig\", \"cluster-config\": \"$clusterconfig\", \"roles\": \"$roles\" }}" 
+          --data "{\"event_type\":\"webhook\", \"client_payload\": { \"commit_hash\": \"$message\", \"app\": \"$appId\", \"argo-config\": \"$argoconfig\", \"cluster-config\": \"$clusterconfig\" }}" 
                          
