@@ -6,7 +6,7 @@ namespace: custom-ns
 images:
     - name: CMD_IMAGE_AND_TAG
       newName: quay.io/gajananan/account-command-ms
-      newTag: 4.0.0
+      newTag: 1.0.0
     - name: QUR_IMAGE_AND_TAG
       newName: quay.io/gajananan/account-query-ms
       newTag: 1.0.0
