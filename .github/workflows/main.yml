@@ -19,9 +19,9 @@ jobs:
           appId="app1"
           argoconfig="https://github.com/gajananan/argo-config"
           clusterconfig="https://github.com/gajananan/argocd-cluster-config"
-          dev_image="gcr.io/signing-demo-project/akeme-signed-dev:0.1"
-          stage_image="gcr.io/signing-demo-project/akeme-signed-stage:0.1"
-          prod_image="gcr.io/signing-demo-project/akeme-signed-prod:0.1"
+          dev_image="gcr.io\/signing-demo-project\/akeme-signed-dev:0.1"
+          stage_image="gcr.io\/signing-demo-project\/akeme-signed-stage:0.1"
+          prod_image="gcr.io\/signing-demo-project\/akeme-signed-prod:0.1"
            
           echo Head Ref and Hash: $message
           
