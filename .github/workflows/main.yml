@@ -26,8 +26,10 @@ jobs:
           echo Head Ref and Hash: $message
           
           #IFS='' read -r -d '' data <<'EOF'
-          data="{\"event_type\": \"webhook\", \"client_payload\": {\"commit_hash\": \"$message\", \"app\": \"$appId\", \"argo-config\": \"$argoconfig\", \"cluster-config\": \"$clusterconfig\", \"dev_image\": \"$dev_image\", \"stage_image\": \"$stage_image\", \"prod_image\": \"$prod_image\"}}"
+          data="{\"event_type\": \"webhook\", \"client_payload\": {\"commit_hash\": \"$message\", \"app\": \"$appId\", \"argo-config\": \"$argoconfig\", \"cluster-config\": \"$clusterconfig\"}}"
           #EOF
+
+          #, \"dev_image\": \"$dev_image\", \"stage_image\": \"$stage_image\", \"prod_image\": \"$prod_image\"
 
           echo data: $data
           
