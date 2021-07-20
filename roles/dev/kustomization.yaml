@@ -1,17 +1,15 @@
 bases:
-- github.com/gajananan/akmebank-app/deploy/base?ref=master
-
+  - github.com/gajananan/akmebank-app/deploy/base?ref=master
 namespace: custom-ns
-
 images:
-    - name: CMD_IMAGE_AND_TAG
-      newName: quay.io/gajananan/account-command-ms
-      newTag: 4.0.0
-    - name: QUR_IMAGE_AND_TAG
-      newName: quay.io/gajananan/account-query-ms
-      newTag: 4.0.0
-    - name: UI_IMAGE_AND_TAG
-      newName: gcr.io/hk-image-registry/akmebank-ui
-      newTag: 4.0.1
+  - name: CMD_IMAGE_AND_TAG
+    newName: quay.io/gajananan/account-command-ms
+    newTag: 4.0.0
+  - name: QUR_IMAGE_AND_TAG
+    newName: quay.io/gajananan/account-query-ms
+    newTag: 4.0.0
+  - name: UI_IMAGE_AND_TAG
+    newName: gcr.io/hk-image-registry/akmebank-ui4.2.0
+    newTag: 4.2.0
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
