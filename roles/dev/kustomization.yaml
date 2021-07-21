@@ -3,11 +3,11 @@ bases:
 namespace: akmebank-app
 images:
   - name: CMD_IMAGE_AND_TAG
-    newName: quay.io/gajananan/account-command-ms
-    newTag: 4.0.0
+    newName: gcr.io/hk-image-registry/account-command-ms
+    newTag: 4.1.1
   - name: QUR_IMAGE_AND_TAG
-    newName: quay.io/gajananan/account-query-ms
-    newTag: 4.0.0
+    newName: gcr.io/hk-image-registry/account-query-ms
+    newTag: 4.1.1
   - name: UI_IMAGE_AND_TAG
     newName: gcr.io/hk-image-registry/akmebank-ui
     newTag: 4.1.1
