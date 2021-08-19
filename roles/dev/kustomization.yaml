@@ -1,6 +1,6 @@
 bases:
   - github.com/gajananan/akmebank-app/deploy/base?ref=master
-namespace: akmebank-app
+namespace: akmebank-app-2
 images:
   - name: CMD_IMAGE_AND_TAG
     newName: gcr.io/hk-image-registry/account-command-ms
