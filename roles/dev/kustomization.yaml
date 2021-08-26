@@ -1,3 +1,4 @@
+# sample change comment 
 bases:
   - github.com/gajananan/akmebank-app/deploy/base?ref=modified1
 namespace: akmebank-app
