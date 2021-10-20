@@ -4,13 +4,13 @@ bases:
 namespace: akmebank-app
 images:
   - name: CMD_IMAGE_AND_TAG
-    newName: gcr.io/hk-image-registry/account-command-ms
+    newName: gcr.io/hk-image-registry2/account-command-ms
     newTag: 4.1.2
   - name: QUR_IMAGE_AND_TAG
-    newName: gcr.io/hk-image-registry/account-query-ms
+    newName: gcr.io/hk-image-registry2/account-query-ms
     newTag: 4.1.2
   - name: UI_IMAGE_AND_TAG
-    newName: gcr.io/hk-image-registry/akmebank-ui
+    newName: gcr.io/hk-image-registry2/akmebank-ui
     newTag: 4.1.2
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
