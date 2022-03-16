@@ -1,0 +1,54 @@
+{
+  "uuid": "c4b3e758-5b66-4ad3-9b58-614294c34979",
+  "subject": [
+    {
+      "name": "./manifest.yaml",
+      "digest": {
+        "sha256": "fefbdc4c080b42a230426b27bcfdfc368a9fbd728b70406d204bf698b8b9a830"
+      }
+    }
+  ],
+  "recipe": {
+    "buildEngine": {
+      "command": "kubectl-sigstore",
+      "version": "v0.1.0"
+    },
+    "parameters": [
+      "manifest-build",
+      "--kustomize",
+      "-d",
+      "roles/dev/",
+      "-o",
+      "./manifest.yaml",
+      "-i",
+      "<IMAGE_NAME>",
+      "-p",
+      "./provenance.json",
+      "-k",
+      "cosign.key",
+      "--sign"
+    ]
+  },
+  "metadata": {
+    "buildStarted": "2022-03-15T02:24:21.518111Z",
+    "buildFinished": "2022-03-15T02:24:24.522104Z"
+  },
+  "materials": [
+    {
+      "uri": "<GITHUB_URL_1>",
+      "digest": {
+        "commit": "0aed66e7802758636f669bc8e5ed3d79f168ea68",
+        "path": "roles/dev",
+        "revision": "0aed66e7802758636f669bc8e5ed3d79f168ea68"
+      }
+    },
+    {
+      "uri": "<GITHUB_URL_2>",
+      "digest": {
+        "commit": "4e830618e0d419beb3207ada46126b9594130354",
+        "path": "deploy/base",
+        "revision": "modified1"
+      }
+    }
+  ]
+}
