@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-deployment
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: sample-container
+        image: ubuntu:20.04
+        ports:
+        - containerPort: 80
+
+      
