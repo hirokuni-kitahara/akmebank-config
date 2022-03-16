@@ -1,0 +1,169 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sample-service
+  namespace: sample-app
+  labels:
+    provenance-uuid: "c4b3e758-5b66-4ad3-9b58-614294c34979"
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: sample-selector
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: akme-account-query
+  namespace: akmebank-app
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: account-query-selector
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: akme-akmebank-ui
+  namespace: akmebank-app
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8000
+  selector:
+    app: akmebank-ui-selector
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/part-of: akmebank
+  name: akme-account-command
+  namespace: akmebank-app
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: account-command-selector
+  template:
+    metadata:
+      labels:
+        app: account-command-selector
+    spec:
+      containers:
+      - env:
+        - name: CONFIG_MOUNT_PATH
+          value: /etc/config
+        image: gcr.io/hk-image-registry2/account-command-ms:4.1.2
+        imagePullPolicy: Always
+        name: account-command
+        resources:
+          limits:
+            cpu: 500m
+            memory: 512Mi
+          requests:
+            cpu: 60m
+            memory: 64Mi
+        volumeMounts:
+        - mountPath: /etc/config
+          name: cos-creds
+          readOnly: true
+      volumes:
+      - name: cos-creds
+        secret:
+          secretName: cos-secret
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/part-of: akmebank
+  name: akme-account-query
+  namespace: akmebank-app
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: account-query-selector
+  template:
+    metadata:
+      labels:
+        app: account-query-selector
+    spec:
+      containers:
+      - env:
+        - name: CONFIG_MOUNT_PATH
+          value: /etc/config
+        image: gcr.io/hk-image-registry2/account-query-ms:4.1.2
+        imagePullPolicy: Always
+        name: account-query
+        resources:
+          requests:
+            cpu: 60m
+            memory: 64Mi
+        volumeMounts:
+        - mountPath: /etc/config
+          name: cos-creds
+          readOnly: true
+      volumes:
+      - name: cos-creds
+        secret:
+          secretName: cos-secret
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/part-of: akmebank
+  name: akme-akmebank-ui
+  namespace: akmebank-app
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: akmebank-ui-selector
+  template:
+    metadata:
+      labels:
+        app: akmebank-ui-selector
+    spec:
+      containers:
+      - image: gcr.io/hk-image-registry2/akmebank-ui:4.1.2
+        imagePullPolicy: Always
+        name: akmebank-ui
+        resources:
+          limits:
+            cpu: 500m
+            memory: 512Mi
+          requests:
+            cpu: 50m
+            memory: 64Mi
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+  name: akme-akmebank-ui
+  namespace: akmebank-app
+spec:
+  host: null
+  port:
+    targetPort: 8000
+  tls:
+    insecureEdgeTerminationPolicy: None
+    termination: edge
+  to:
+    kind: Service
+    name: akmebank-ui
+    weight: 100
+  wildcardPolicy: None
