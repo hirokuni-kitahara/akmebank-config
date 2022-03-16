@@ -13,25 +13,7 @@
       "command": "kubectl-sigstore",
       "version": "v0.1.0"
     },
-    "parameters": [
-      "manifest-build",
-      "--kustomize",
-      "-d",
-      "roles/dev/",
-      "-o",
-      "./manifest.yaml",
-      "-i",
-      "<IMAGE_NAME>",
-      "-p",
-      "./provenance.json",
-      "-k",
-      "cosign.key",
-      "--sign"
-    ]
-  },
-  "metadata": {
-    "buildStarted": "2022-03-15T02:24:21.518111Z",
-    "buildFinished": "2022-03-15T02:24:24.522104Z"
+    "args": ["manifest-build", "--kustomize", "-d", "roles/dev/", "-o", "./manifest.yaml", "-p", "./provenance.json"]
   },
   "materials": [
     {
