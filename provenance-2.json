@@ -13,7 +13,13 @@
       "command": "kubectl-sigstore",
       "version": "v0.1.0"
     },
-    "args": ["manifest-build", "--kustomize", "-d", "roles/dev/", "-o", "./manifest.yaml", "-p", "./provenance.json"]
+    "args": [
+      "manifest-build", 
+      "--kustomize",
+      "-d", "roles/dev/",
+      "-o", "./manifest.yaml",
+      "-p", "./provenance.json"
+    ]
   },
   "materials": [
     {
