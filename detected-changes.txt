@@ -1,0 +1,4 @@
+$ diff reproduced_manifest.yaml original_manifest.yaml
+148,149d147
+<         securityContext:
+<           privileged: true
