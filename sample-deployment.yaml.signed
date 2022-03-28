@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    b64EncodedManifest: H4sIAAAAAAAA/wBtAZL+H4sIAAAAAAAA/+yRzW7bMAzHffZT8AUc07YSrzrtsMOA7bDDsGvByIyrVV+V5A7p0w9aUq/BPo4bCuR3IaQ/+ScJto8U24M3E8fU7qb24fjkZuvceHuDW4W36it2h/7hGyLi7NrPrfI2RE5Ju7nJFJv5qR/xRmDfjaJNZIPhZuJg/NGyy5sjWVNqd0JUJY677Y+I/eld2ApRdaLvcejGvhsqHHbDsK0Aq3/AkjLFCvG9jv5+cXrzQWe6o0jdW723G+XtKS9lOhz+4nPeZY2vBAr6C8ekvZNAIaT2savvtZskvFuPWFvONFEmWQM4sizhl0PXKbAqeuRgtKIkoasBEhtW2ceiAFjK6u4j7dmk0weUnqvbc3INkNkGQ5nPdS/6F8yFxR9NAJ6HKijvMmnHcS1sLpdZE1ZfbWlmCct+cXmRPW5QrFrwMb8Yofnp/8nHLOEN1mex/t83vnLlypXf8T0AAP//JJLiVgAIAAABAAD//3zmLJxtAQAA
+  name: sample-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-selector
+  template:
+    metadata:
+      labels:
+        app: sample-selector
+    spec:
+      containers:
+      - image: ubuntu:20.04
+        name: sample-container
+        ports:
+        - containerPort: 80
