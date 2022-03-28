@@ -10,15 +10,13 @@
   ],
   "recipe": {
     "buildEngine": {
-      "command": "kubectl-sigstore",
-      "version": "v0.1.0"
+      "command": "kustomize",
+      "version": "v4.2.0"
     },
     "args": [
-      "manifest-build", 
-      "--kustomize",
-      "-d", "roles/dev/",
-      "-o", "./manifest.yaml",
-      "-p", "./provenance.json"
+      "build",
+      "-d",
+      "roles/dev/"
     ]
   },
   "materials": [
