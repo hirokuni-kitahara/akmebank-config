@@ -1,6 +1,7 @@
 bases:
-  - github.com/gajananan/akmebank-app/deploy/base?ref=master
-namespace: custom-ns
+  # - github.com/gajananan/akmebank-app/deploy/base?ref=modified1
+  - github.com/hirokuni-kitahara/akmebank-app/deploy/base
+namespace: akmebank-app
 images:
   - name: CMD_IMAGE_AND_TAG
     newName: quay.io/gajananan/account-command-ms
