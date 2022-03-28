@@ -1,6 +1,6 @@
 bases:
   # - github.com/gajananan/akmebank-app/deploy/base?ref=modified1
-  - github.com/hirokuni-kitahara/akmebank-app/deploy/base
+  - github.com/hirokuni-kitahara/akmebank-app/deploy/base?ref=modified1
 namespace: akmebank-app
 images:
   - name: CMD_IMAGE_AND_TAG
