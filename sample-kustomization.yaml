@@ -1,0 +1,8 @@
+resources:
+  - github.com/ORG_NAME/APPLICATION_B
+
+namespace: sample-namespace
+images:
+  - name: IMAGE_NAME
+    newName: image-registry/sample-image
+    newTag: develop
