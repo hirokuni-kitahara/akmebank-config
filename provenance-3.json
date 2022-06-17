@@ -1,0 +1,40 @@
+{
+  "uuid": "93503289-a5cf-4b83-97cd-69d250a767f7",
+  "subject": [
+    {
+      "name": "./manifest.yaml",
+      "digest": {
+        "sha256": "1dbe2ef0664f0ee3890bd1f96dbb7424046dc842aa28ede632e71e4cbc0d12fa"
+      }
+    }
+  ],
+  "recipe": {
+    "buildEngine": {
+      "command": "helm",
+      "version": "v3.5.3"
+    },
+    "args": [
+      "template",
+      "<install_name>",
+      "<chart_name>",
+      "--set",
+      "image.tag=0.33.0"
+    ]
+  },
+  "materials": [
+    {
+      "uri": "<HELMCHART_URL>",
+      "digest": {
+        "sha256": "9f235b2e2e05347ddacae8a805da51c3a768a94d2b377b791a6e2970fcd62d6a",
+        "version": "1.16.3"
+      }
+    },
+    {
+      "uri": "values.yaml",
+      "digest": {
+        "sha256": "91d3274a5fb3b57d4a478a3102b8c6f004fea559f76b4b36eeaeb69a9513867c",
+        "body": "aW1hZ2U6CiAgcmVnaXN0cnk6IGRvY2tlci5pbwogIHJlcG9zaXRvcnk6IGZhbGNvc2VjdXJpdHkvZmFsY28KICBwdWxsUG9saWN5OiBJZk5vdFByZXNlbnQKICBwdWxsU2VjcmV0czogW10KCmRvY2tlcjoKICBlbmFibGVkOiBmYWxzZQogIHNvY2tldDogL3Zhci9ydW4vZG9ja2VyLnNvY2sKCmNvbnRhaW5lcmQ6CiAgZW5hYmxlZDogZmFsc2UKICBzb2NrZXQ6IC9ydW4vY29udGFpbmVyZC9jb250YWluZXJkLnNvY2sKCmNyaW86CiAgZW5hYmxlZDogZmFsc2UKICBzb2NrZXQ6IC9ydW4vY3Jpby9jcmlvLnNvY2sK"
+      }
+    }
+  ]
+}
